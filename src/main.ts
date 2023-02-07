@@ -6,9 +6,9 @@ const logger = new Logger('main');
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-
-  app.listen(process.env.HTTP_PORT || 4002, () => {
-    logger.log(`Running on ${process.env.HTTP_PORT || 4002}`);
+  app.setGlobalPrefix('api/v1');
+  app.listen(process.env.HTTP_PORT || 5000, () => {
+    logger.log(`Running on ${process.env.HTTP_PORT || 5000}`);
   });
 }
 bootstrap();
